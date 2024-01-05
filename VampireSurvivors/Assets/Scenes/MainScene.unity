@@ -13750,7 +13750,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 7637089280225573355, guid: 17c1e0b6bdeb449c7b7abae434f22b4f, type: 3}
   - {fileID: 4903918387409383172, guid: 492d7609550b84ed7b24468d2aed330e, type: 3}
 --- !u!1 &1519978455
 GameObject:
@@ -13809,6 +13808,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: []
+  spawnDatas:
+  - spawnTime: 0.7
+    mosterType: 0
+    monsterHealth: 10
+    monsterSpeed: 1.5
+  - spawnTime: 0.3
+    mosterType: 1
+    monsterHealth: 15
+    monsterSpeed: 2.5
 --- !u!1 &1600382816
 GameObject:
   m_ObjectHideFlags: 0
@@ -18098,6 +18106,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pool: {fileID: 1506431871}
   player: {fileID: 2145640039}
+  gameTime: 0
+  maxGameTime: 20
 --- !u!1 &1827274198
 GameObject:
   m_ObjectHideFlags: 0

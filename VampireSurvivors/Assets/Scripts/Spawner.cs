@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class Spawner : MonoBehaviour {
 
 	public Transform[] spawnPoint;
-
+	public SpawnData[] spawnDatas;
 	private int level;
 	private float timer;
 
@@ -17,16 +17,25 @@ public class Spawner : MonoBehaviour {
 
 	private void Update() {
 		timer += Time.deltaTime;
-		level = Mathf.FloorToInt(GameManager.instance.gameTime / 10f);
+		level = Mathf.Min(Mathf.FloorToInt(GameManager.instance.gameTime / 10f), spawnDatas.Length - 1);
 		
-		if (timer > (level == 0 ? 0.5f : 0.2f)) {
+		if (timer > spawnDatas[level].spawnTime) {
 			Spawn();
 			timer = 0;
 		}
 	}
 
 	private void Spawn() {
-		GameObject Monster = GameManager.instance.pool.Get(level);
-		Monster.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
+		GameObject monster = GameManager.instance.pool.Get(0);
+		monster.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
+		monster.GetComponent<Enemy>().Init(spawnDatas[level]);
 	}
+}
+
+[Serializable]
+public class SpawnData {
+	public float spawnTime;
+	public int mosterType;
+	public int monsterHealth;
+	public float monsterSpeed;
 }
