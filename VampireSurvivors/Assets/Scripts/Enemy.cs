@@ -6,10 +6,10 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
 
     public float moveSpeed;
-    public Rigidbody2D target;
 
     private bool isLive = true;
 
+    private Rigidbody2D target;
     private Rigidbody2D rigid;
     private SpriteRenderer spriteRenderer;
     
@@ -31,5 +31,9 @@ public class Enemy : MonoBehaviour {
         if(!isLive) return;
         
         spriteRenderer.flipX = target.position.x < rigid.position.x;
+    }
+
+    private void OnEnable() {
+        target = GameManager.instance.player.GetComponent<Rigidbody2D>();
     }
 }
