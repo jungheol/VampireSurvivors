@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour {
 
@@ -13,14 +14,13 @@ public class Player : MonoBehaviour {
     private void Awake() {
         rigid = GetComponent<Rigidbody2D>();
     }
-    
-    private void Update() {
-        inputVec.x = Input.GetAxisRaw("Horizontal");
-        inputVec.y = Input.GetAxisRaw("Vertical");
-    }
 
     private void FixedUpdate() {
-        Vector2 nextVec = inputVec.normalized * moveSpeed * Time.fixedDeltaTime;
+        Vector2 nextVec = inputVec * moveSpeed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + nextVec);
+    }
+
+    private void OnMove(InputValue value) {
+        inputVec = value.Get<Vector2>();
     }
 }
