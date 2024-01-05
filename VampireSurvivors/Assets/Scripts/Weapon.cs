@@ -44,6 +44,10 @@ public class Weapon : MonoBehaviour {
 		for (int i = 0; i < count; i++) {
 			Transform bullet = GameManager.instance.pool.Get(prefabId).transform;
 			bullet.parent = transform;
+
+			Vector3 rotVec = Vector3.forward * 360 * i / count;
+			bullet.Rotate(rotVec);
+			bullet.Translate(bullet.up * 1.3f, Space.World);
 			bullet.GetComponent<Bullet>().Init(damage, -1); // -1 은 무한관통.
 		}
 	}
