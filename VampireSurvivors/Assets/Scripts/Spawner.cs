@@ -8,6 +8,7 @@ public class Spawner : MonoBehaviour {
 
 	public Transform[] spawnPoint;
 
+	private int level;
 	private float timer;
 
 	private void Awake() {
@@ -16,15 +17,16 @@ public class Spawner : MonoBehaviour {
 
 	private void Update() {
 		timer += Time.deltaTime;
-
-		if (timer > 0.5f) {
+		level = Mathf.FloorToInt(GameManager.instance.gameTime / 10f);
+		
+		if (timer > (level == 0 ? 0.5f : 0.2f)) {
 			Spawn();
 			timer = 0;
 		}
 	}
 
 	private void Spawn() {
-		GameObject Monster = GameManager.instance.pool.Get(Random.Range(0, 2));
+		GameObject Monster = GameManager.instance.pool.Get(level);
 		Monster.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
 	}
 }
