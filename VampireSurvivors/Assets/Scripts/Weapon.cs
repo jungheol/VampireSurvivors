@@ -27,6 +27,15 @@ public class Weapon : MonoBehaviour {
 		}
 	}
 
+	public void LevelUp(float damage, int count) {
+		this.damage = damage;
+		this.count += count;
+
+		if (id == 0) {
+			Batch();
+		}
+	}
+
 	public void Init() {
 		switch (id) {
 			case 0:
@@ -42,8 +51,19 @@ public class Weapon : MonoBehaviour {
 
 	private void Batch() {
 		for (int i = 0; i < count; i++) {
-			Transform bullet = GameManager.instance.pool.Get(prefabId).transform;
-			bullet.parent = transform;
+			Transform bullet;
+			
+			// 이미 가지고 있는 weapon이 있다면, 있는 것을 먼저 쓰고, 없다면 pooling에서 생성하기
+			if (i < transform.childCount) {
+				bullet = transform.GetChild(i);
+			} else {
+				bullet = GameManager.instance.pool.Get(prefabId).transform;
+				bullet.parent = transform;
+			}
+			
+			// 무기 추가 생성 시 위치 초기화
+			bullet.localPosition = Vector3.zero;
+			bullet.localRotation = Quaternion.identity;
 
 			Vector3 rotVec = Vector3.forward * 360 * i / count;
 			bullet.Rotate(rotVec);
