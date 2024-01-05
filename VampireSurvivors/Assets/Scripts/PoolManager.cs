@@ -15,4 +15,23 @@ public class PoolManager : MonoBehaviour {
             pools[i] = new List<GameObject>();
         }
     }
+
+    public GameObject Get(int index) {
+        GameObject select = null;
+
+        foreach (GameObject monster in pools[index]) {
+            if (!monster.activeSelf) {
+                select = monster;
+                select.SetActive(true);
+                break;
+            }
+        }
+
+        if (!select) {
+            select = Instantiate(prefabs[index], transform);
+            pools[index].Add(select);
+        }
+        
+        return select;
+    }
 }
