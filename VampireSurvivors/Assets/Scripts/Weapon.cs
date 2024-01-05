@@ -11,6 +11,13 @@ public class Weapon : MonoBehaviour {
 	public int count;
 	public float speed;
 
+	private float timer;
+	private Player player;
+
+	private void Awake() {
+		player = GetComponentInParent<Player>();
+	}
+
 	private void Start() {
 		Init();
 	}
@@ -21,6 +28,12 @@ public class Weapon : MonoBehaviour {
 				transform.Rotate(Vector3.back * speed * Time.deltaTime);
 				break;
 			case 1:
+				timer += Time.deltaTime;
+
+				if (timer > speed) {
+					timer = 0f;
+					Fire();
+				}
 				break;
 			default:
 				break;
@@ -43,6 +56,7 @@ public class Weapon : MonoBehaviour {
 				Batch();		
 				break;
 			case 1:
+				speed = 0.3f;
 				break;
 			default:
 				break;
@@ -70,6 +84,14 @@ public class Weapon : MonoBehaviour {
 			bullet.Translate(bullet.up * 1.3f, Space.World);
 			bullet.GetComponent<Bullet>().Init(damage, -1); // -1 은 무한관통.
 		}
+	}
+
+	private void Fire() {
+		if (!player.scanner.nearestTarget)
+			return;
+
+		Transform bullet = GameManager.instance.pool.Get(prefabId).transform;
+		bullet.position = transform.position;
 	}
 }
 
