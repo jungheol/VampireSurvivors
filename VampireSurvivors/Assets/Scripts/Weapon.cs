@@ -40,9 +40,10 @@ public class Weapon : MonoBehaviour {
 		this.damage = damage;
 		this.count += count;
 
-		if (id == 0) {
+		if (id == 0)
 			Batch();
-		}
+		
+		player.BroadcastMessage("ApplyGear");
 	}
 
 	public void Init(ItemData data) {
@@ -68,12 +69,12 @@ public class Weapon : MonoBehaviour {
 				speed = 150;
 				Batch();		
 				break;
-			case 1:
+			default:
 				speed = 0.3f;
 				break;
-			default:
-				break;
 		}
+		
+		player.BroadcastMessage("ApplyGear");
 	}
 
 	private void Batch() {
