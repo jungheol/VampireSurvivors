@@ -9,8 +9,8 @@ public class Enemy : MonoBehaviour {
     public float health;
     public float maxHealth;
     public RuntimeAnimatorController[] animControllers;
+    
     private bool isLive;
-
     private Rigidbody2D target;
     private Rigidbody2D rigid;
     private Collider2D coll;
@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (!other.CompareTag("Bullet"))
+        if (!other.CompareTag("Bullet") || !isLive)
             return;
 
         health -= other.GetComponent<Bullet>().damage;
@@ -73,6 +73,8 @@ public class Enemy : MonoBehaviour {
             rigid.simulated = false;
             spriteRenderer.sortingOrder = 1;
             anim.SetBool("Dead", true);
+            GameManager.instance.killPoint++;
+            GameManager.instance.GetExp();
         }
     }
 
