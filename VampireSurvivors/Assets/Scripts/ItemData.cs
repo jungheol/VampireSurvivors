@@ -23,7 +23,7 @@ public class ItemData : ScriptableObject {
 	[Header("Level Data")] 
 	public float baseDamage;
 	public int baseCount;
-	public float[] damages;
+	public float[] damageRate;
 	public int[] counts;
 
 	[Header("Weapon")] 

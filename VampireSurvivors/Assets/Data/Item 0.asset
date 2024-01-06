@@ -19,11 +19,11 @@ MonoBehaviour:
   itemIcon: {fileID: -181907988, guid: f9924a504539145649d9051724be58c6, type: 3}
   baseDamage: 4.5
   baseCount: 3
-  damages:
-  - 0.5
-  - 1
+  damageRate:
   - 1.5
   - 2
   - 2.5
+  - 3
+  - 3.5
   counts: 0100000001000000010000000100000001000000
   projectile: {fileID: 8422795541111955515, guid: 27b095b5e22b04af0acccdf6312f42ae, type: 3}

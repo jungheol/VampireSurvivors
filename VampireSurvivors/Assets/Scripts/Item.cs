@@ -31,6 +31,14 @@ public class Item : MonoBehaviour {
                     GameObject newWeapon = new GameObject();
                     weapon = newWeapon.AddComponent<Weapon>();
                     weapon.Init(data);
+                } else {
+                    float nextDamage = data.baseDamage;
+                    int nextCount = 0;
+
+                    nextDamage += data.baseDamage * data.damageRate[level];
+                    nextCount += data.counts[level];
+                    
+                    weapon.LevelUp(nextDamage, nextCount);
                 }
                 break;
             case ItemData.ItemType.Glove:
@@ -43,7 +51,7 @@ public class Item : MonoBehaviour {
 
         level++;
 
-        if (level == data.damages.Length) {
+        if (level == data.damageRate.Length) {
             GetComponent<Button>().interactable = false;
         }
     }
