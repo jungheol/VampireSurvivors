@@ -19,19 +19,19 @@ public class Weapon : MonoBehaviour {
 	}
 
 	private void Update() {
+		if(!GameManager.instance.isLive) return;
+		
 		switch (id) {
 			case 0:
 				transform.Rotate(Vector3.back * speed * Time.deltaTime);
 				break;
-			case 1:
+			default:
 				timer += Time.deltaTime;
 
 				if (timer > speed) {
 					timer = 0f;
 					Fire();
 				}
-				break;
-			default:
 				break;
 		}
 	}
@@ -105,8 +105,7 @@ public class Weapon : MonoBehaviour {
 	}
 
 	private void Fire() {
-		if (!player.scanner.nearestTarget)
-			return;
+		if (!player.scanner.nearestTarget) return;
 
 		Vector3 targetPos = player.scanner.nearestTarget.position;
 		Vector3 dir = targetPos - transform.position;
