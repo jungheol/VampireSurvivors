@@ -15,11 +15,13 @@ public class Enemy : MonoBehaviour {
     private Rigidbody2D rigid;
     private Animator anim;
     private SpriteRenderer spriteRenderer;
+    private WaitForFixedUpdate wait;
     
     private void Awake() {
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        wait = new WaitForFixedUpdate();
     }
 
     private void FixedUpdate() {
@@ -55,12 +57,20 @@ public class Enemy : MonoBehaviour {
             return;
 
         health -= other.GetComponent<Bullet>().damage;
-
+        StartCoroutine(KnockBack());
+        
         if (health > 0) {
-            
+            anim.SetTrigger("Hit");            
         } else {
             Dead();        
         }
+    }
+
+    IEnumerator KnockBack() {
+        yield return wait;
+        Vector3 playerPos = GameManager.instance.player.transform.position;
+        Vector3 dirVec = transform.position - playerPos;
+        rigid.AddForce(dirVec.normalized * 3, ForceMode2D.Impulse);
     }
 
     private void Dead() {
