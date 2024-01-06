@@ -24,6 +24,9 @@ public class HUD : MonoBehaviour {
     private void LateUpdate() {
         switch (infoType) {
             case InfoType.Exp:
+                float curExp = GameManager.instance.exp;
+                float maxExp = GameManager.instance.nextExp[GameManager.instance.level];
+                mySlider.value = curExp / maxExp;
                 break;
             case InfoType.Level:
                 break;
