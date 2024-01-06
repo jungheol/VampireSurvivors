@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        if(!isLive) return;
+        if(!isLive || anim.GetCurrentAnimatorStateInfo(0).IsName("Hit")) return;
             
         Vector2 dirVec = target.position - rigid.position;
         Vector2 nextVec = dirVec.normalized * moveSpeed * Time.fixedDeltaTime;
