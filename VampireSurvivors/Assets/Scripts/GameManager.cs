@@ -26,11 +26,10 @@ public class GameManager : MonoBehaviour {
         instance = this;
     }
 
-    private void Start() {
+    public void GameStart() {
         health = maxHealth;
-        
-        // 임시
         levelUpUI.Select(0);
+        isLive = true;
     }
 
     private void Update() {
