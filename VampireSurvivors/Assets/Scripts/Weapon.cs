@@ -15,11 +15,7 @@ public class Weapon : MonoBehaviour {
 	private Player player;
 
 	private void Awake() {
-		player = GetComponentInParent<Player>();
-	}
-
-	private void Start() {
-		Init();
+		player = GameManager.instance.player;
 	}
 
 	private void Update() {
@@ -49,7 +45,24 @@ public class Weapon : MonoBehaviour {
 		}
 	}
 
-	public void Init() {
+	public void Init(ItemData data) {
+		// 기본 셋팅
+		name = "Weapon " + data.itemId;
+		transform.parent = player.transform;
+		transform.localPosition = Vector3.zero;
+		
+		// 각종 값 세팅
+		id = data.itemId;
+		damage = data.baseDamage;
+		count = data.baseCount;
+
+		for (int i = 0; i < GameManager.instance.pool.prefabs.Length; i++) {
+			if (data.projectile == GameManager.instance.pool.prefabs[i]) {
+				prefabId = i;
+				break;
+			}
+		}
+		
 		switch (id) {
 			case 0:
 				speed = 150;
