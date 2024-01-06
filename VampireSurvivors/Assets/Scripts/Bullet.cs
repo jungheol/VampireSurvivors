@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour {
 		this.per = per;
 
 		if (per > -1) {
-			rigid.velocity = dir;
+			rigid.velocity = dir * 10f;
 		}
 	}
 
