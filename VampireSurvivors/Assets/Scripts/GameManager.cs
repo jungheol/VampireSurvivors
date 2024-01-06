@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviour {
     public PoolManager pool;
     public Player player;
     public LevelUp levelUpUI;
+    public GameObject resultUI;
     [Header("Game Control")]
     public float gameTime;
     public float maxGameTime = 20f;
@@ -29,7 +31,24 @@ public class GameManager : MonoBehaviour {
     public void GameStart() {
         health = maxHealth;
         levelUpUI.Select(0);
-        isLive = true;
+        Resume();
+    }
+
+    public void GameOver() {
+        StartCoroutine(GameOverRoutine());
+    }
+
+    IEnumerator GameOverRoutine() {
+        isLive = false;
+        
+        yield return new WaitForSeconds(0.5f);
+        
+        resultUI.SetActive(true);
+        Stop();
+    }
+    
+    public void GameRetry() {
+        SceneManager.LoadScene("MainScene");
     }
 
     private void Update() {
