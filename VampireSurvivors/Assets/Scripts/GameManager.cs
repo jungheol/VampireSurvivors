@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
     [Header("Game Object")]
     public PoolManager pool;
     public Player player;
+    public LevelUp levelUpUI;
     [Header("Game Control")]
     public float gameTime;
     public float maxGameTime = 20f;
@@ -42,7 +43,7 @@ public class GameManager : MonoBehaviour {
         if (exp == nextExp[level]) {
             level++;
             exp = 0;
-            
+            levelUpUI.Show();
         }
     }
 }
