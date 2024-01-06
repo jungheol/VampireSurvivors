@@ -78,7 +78,7 @@ public class Item : MonoBehaviour {
                 GameManager.instance.health = GameManager.instance.maxHealth;
                 break;
         }
-        
+
         if (level == data.damageRate.Length) {
             GetComponent<Button>().interactable = false;
         }
