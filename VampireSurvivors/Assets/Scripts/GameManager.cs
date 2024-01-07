@@ -80,6 +80,8 @@ public class GameManager : MonoBehaviour {
     }
 
     public void GetExp() {
+        if (!isLive) return;
+        
         exp++;
 
         if (exp == nextExp[Mathf.Min(level, nextExp.Length-1)]) {
