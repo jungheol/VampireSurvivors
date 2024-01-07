@@ -7,15 +7,18 @@ public class AchieveManager : MonoBehaviour {
 
     public GameObject[] lockCharacter;
     public GameObject[] unlockCharacter;
+    public GameObject noticeUI;
 
     enum Achieve {
         Unlock0, 
         Unlock1
     }
     private Achieve[] achives;
+    private WaitForSecondsRealtime wait;
 
     private void Awake() {
         achives = (Achieve[])Enum.GetValues(typeof(Achieve));
+        wait = new WaitForSecondsRealtime(5);
         
         if (!PlayerPrefs.HasKey("MyData")) Init();
     }
@@ -63,6 +66,21 @@ public class AchieveManager : MonoBehaviour {
 
         if (isAchieve && PlayerPrefs.GetInt(achieve.ToString()) == 0) {
             PlayerPrefs.SetInt(achieve.ToString(), 1);
+
+            for (int i = 0; i < noticeUI.transform.childCount; i++) {
+                bool isActive = i == (int)achieve;
+                noticeUI.transform.GetChild(i).gameObject.SetActive(isActive);
+            }
+            
+            StartCoroutine(NoticeRoutine());
         }
+    }
+
+    IEnumerator NoticeRoutine() {
+        noticeUI.SetActive(true);
+        
+        yield return wait;
+        
+        noticeUI.SetActive(false);
     }
 }
