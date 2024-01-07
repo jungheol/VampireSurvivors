@@ -32,7 +32,7 @@ public class Player : MonoBehaviour {
     private void FixedUpdate() {
         if(!GameManager.instance.isLive) return;
         
-        Vector2 nextVec = inputVec * moveSpeed * Time.fixedDeltaTime;
+        Vector2 nextVec = inputVec.normalized * moveSpeed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + nextVec);
     }
 

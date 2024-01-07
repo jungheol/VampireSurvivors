@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
     public LevelUp levelUpUI;
     public Result resultUI;
     public GameObject enemyCleaner;
+    public Transform joyUI;
     
     [Header("Game Control")]
     public float gameTime;
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour {
 
     private void Awake() {
         instance = this;
+        Application.targetFrameRate = 60;
     }
 
     public void GameStart(int id) {
@@ -83,6 +85,10 @@ public class GameManager : MonoBehaviour {
     public void GameRetry() {
         SceneManager.LoadScene("MainScene");
     }
+    
+    public void GameQuit() {
+        Application.Quit();
+    }
 
     private void Update() {
         if(!isLive) return;
@@ -110,10 +116,12 @@ public class GameManager : MonoBehaviour {
     public void Stop() {
         isLive = false;
         Time.timeScale = 0;
+        joyUI.localScale = Vector3.zero;
     }
 
     public void Resume() {
         isLive = true;
         Time.timeScale = 1;
+        joyUI.localScale = Vector3.one;
     }
 }
