@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
     public LevelUp levelUpUI;
     public Result resultUI;
     public GameObject enemyCleaner;
+    public Transform joyUI;
     
     [Header("Game Control")]
     public float gameTime;
@@ -110,10 +111,12 @@ public class GameManager : MonoBehaviour {
     public void Stop() {
         isLive = false;
         Time.timeScale = 0;
+        joyUI.localScale = Vector3.zero;
     }
 
     public void Resume() {
         isLive = true;
         Time.timeScale = 1;
+        joyUI.localScale = Vector3.one;
     }
 }

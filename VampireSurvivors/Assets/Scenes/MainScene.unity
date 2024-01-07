@@ -1300,7 +1300,7 @@ RectTransform:
   m_GameObject: {fileID: 356865846}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1817065791160809893}
@@ -23615,6 +23615,7 @@ MonoBehaviour:
   levelUpUI: {fileID: 395795972}
   resultUI: {fileID: 488914680}
   enemyCleaner: {fileID: 842863463}
+  joyUI: {fileID: 356865847}
   gameTime: 0
   maxGameTime: 300
   isLive: 0
