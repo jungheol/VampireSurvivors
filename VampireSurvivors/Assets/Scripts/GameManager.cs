@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour {
         levelUpUI.Select(playerId % 2);
         Resume();
         
+        AudioManager.instance.PlayBgm(true);
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
     }
 
@@ -57,6 +58,7 @@ public class GameManager : MonoBehaviour {
         resultUI.Lose();
         Stop();
         
+        AudioManager.instance.PlayBgm(false);
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Lose);
     }
     
@@ -74,6 +76,7 @@ public class GameManager : MonoBehaviour {
         resultUI.Victory();
         Stop();
         
+        AudioManager.instance.PlayBgm(false);
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Win);
     }
     

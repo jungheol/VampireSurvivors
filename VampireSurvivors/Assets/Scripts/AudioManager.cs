@@ -56,6 +56,14 @@ public class AudioManager : MonoBehaviour {
 		}
 	}
 
+	public void PlayBgm(bool isPlay) {
+		if (isPlay) {
+			bgmPlayer.Play();
+		} else {
+			bgmPlayer.Stop();
+		}
+	}
+
 	public void PlaySfx(Sfx sfx) {
 		for (int i = 0; i < sfxPlayers.Length; i++) {
 			int loopIndex = (i + channelIndex) % sfxPlayers.Length;
