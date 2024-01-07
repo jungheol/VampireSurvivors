@@ -17744,7 +17744,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1662320952}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: GameStart
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -22287,6 +22287,7 @@ MonoBehaviour:
   gameTime: 0
   maxGameTime: 20
   isLive: 0
+  playerId: 0
   health: 0
   maxHealth: 100
   level: 0
@@ -23593,11 +23594,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1662320952}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: GameStart
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
@@ -23807,7 +23808,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC774\uB3D9\uC18D\uB3C4 10% \uC99D\uAC00"
+  m_Text: "\uC5F0\uC0AC\uC18D\uB3C4 10% \uC99D\uAC00"
 --- !u!222 &2110233060
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24092,7 +24093,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &2145640035
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -24218,6 +24219,11 @@ MonoBehaviour:
   moveSpeed: 3
   scanner: {fileID: 0}
   hands: []
+  animCon:
+  - {fileID: 9100000, guid: 051cea5061bff4686a5bfb9c63556eb7, type: 2}
+  - {fileID: 22100000, guid: cd590b4bb812a44418921e1053a557b0, type: 2}
+  - {fileID: 22100000, guid: 5122bebef9128488594cb259ff7cd292, type: 2}
+  - {fileID: 22100000, guid: 4e38b030a94034694a5049a84ac61257, type: 2}
 --- !u!114 &2145640040
 MonoBehaviour:
   m_ObjectHideFlags: 0
