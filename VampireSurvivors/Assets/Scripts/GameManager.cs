@@ -84,6 +84,10 @@ public class GameManager : MonoBehaviour {
     public void GameRetry() {
         SceneManager.LoadScene("MainScene");
     }
+    
+    public void GameQuit() {
+        Application.Quit();
+    }
 
     private void Update() {
         if(!isLive) return;
