@@ -7,16 +7,19 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
+    
     [Header("Game Object")]
     public PoolManager pool;
     public Player player;
     public LevelUp levelUpUI;
     public Result resultUI;
     public GameObject enemyCleaner;
+    
     [Header("Game Control")]
     public float gameTime;
     public float maxGameTime = 20f;
     public bool isLive;
+    
     [Header("Player Info")] 
     public int playerId;
     public float health;
