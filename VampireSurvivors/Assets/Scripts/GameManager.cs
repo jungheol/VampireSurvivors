@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour {
     public int level;
     public int killPoint;
     public int exp;
-    public int[] nextExp = { 10, 30, 60, 100, 150, 210, 300, 450 };
+    public int[] nextExp = { 3, 10, 30, 100, 150, 210, 280, 360, 450, 600 };
 
     private void Awake() {
         instance = this;
