@@ -70,7 +70,8 @@ public class Enemy : MonoBehaviour {
         StartCoroutine(KnockBack());
         
         if (health > 0) {
-            anim.SetTrigger("Hit");            
+            anim.SetTrigger("Hit");
+            AudioManager.instance.PlaySfx(AudioManager.Sfx.Hit);
         } else {
             isLive = false;
             coll.enabled = false;
@@ -79,6 +80,8 @@ public class Enemy : MonoBehaviour {
             anim.SetBool("Dead", true);
             GameManager.instance.killPoint++;
             GameManager.instance.GetExp();
+            
+            if(GameManager.instance.isLive) AudioManager.instance.PlaySfx(AudioManager.Sfx.Dead);
         }
     }
 

@@ -7,16 +7,19 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
+    
     [Header("Game Object")]
     public PoolManager pool;
     public Player player;
     public LevelUp levelUpUI;
     public Result resultUI;
     public GameObject enemyCleaner;
+    
     [Header("Game Control")]
     public float gameTime;
     public float maxGameTime = 20f;
     public bool isLive;
+    
     [Header("Player Info")] 
     public int playerId;
     public float health;
@@ -37,6 +40,9 @@ public class GameManager : MonoBehaviour {
         player.gameObject.SetActive(true);
         levelUpUI.Select(playerId % 2);
         Resume();
+        
+        AudioManager.instance.PlayBgm(true);
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
     }
 
     public void GameOver() {
@@ -51,6 +57,9 @@ public class GameManager : MonoBehaviour {
         resultUI.gameObject.SetActive(true);
         resultUI.Lose();
         Stop();
+        
+        AudioManager.instance.PlayBgm(false);
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.Lose);
     }
     
     public void GameVictory() {
@@ -66,6 +75,9 @@ public class GameManager : MonoBehaviour {
         resultUI.gameObject.SetActive(true);
         resultUI.Victory();
         Stop();
+        
+        AudioManager.instance.PlayBgm(false);
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.Win);
     }
     
     public void GameRetry() {
