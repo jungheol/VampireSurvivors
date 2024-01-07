@@ -23,8 +23,7 @@ public class Bullet : MonoBehaviour {
 	}
 
 	private void OnTriggerEnter2D(Collider2D other) {
-		if (!other.CompareTag("Enemy") || per == -100)
-			return;
+		if (!other.CompareTag("Enemy") || per == -100) return;
 
 		per--;
 
@@ -32,5 +31,11 @@ public class Bullet : MonoBehaviour {
 			rigid.velocity = Vector2.zero;
 			gameObject.SetActive(false);
 		}
+	}
+
+	private void OnTriggerExit2D(Collider2D other) {
+		if (!other.CompareTag("Area") || per == -100) return;
+		
+		gameObject.SetActive(false);
 	}
 }
