@@ -17,10 +17,10 @@ public class Character : MonoBehaviour
     }
     
     public static float Damage {
-        get { return GameManager.instance.playerId == 2 ? 1.2f : 1f; }
+        get { return GameManager.instance.playerId == 3 ? 1.2f : 1f; }
     }
     
     public static int Count {
-        get { return GameManager.instance.playerId == 3 ? 1 : 0; }
+        get { return GameManager.instance.playerId == 2 ? 1 : 0; }
     }
 }
