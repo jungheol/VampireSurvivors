@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour {
     public PoolManager pool;
     public Player player;
     public LevelUp levelUpUI;
-    public GameObject resultUI;
+    public Result resultUI;
+    public GameObject enemyCleaner;
     [Header("Game Control")]
     public float gameTime;
     public float maxGameTime = 20f;
@@ -43,7 +44,23 @@ public class GameManager : MonoBehaviour {
         
         yield return new WaitForSeconds(0.5f);
         
-        resultUI.SetActive(true);
+        resultUI.gameObject.SetActive(true);
+        resultUI.Lose();
+        Stop();
+    }
+    
+    public void GameVictory() {
+        StartCoroutine(GameVictoryRoutine());
+    }
+
+    IEnumerator GameVictoryRoutine() {
+        isLive = false;
+        enemyCleaner.SetActive(true);
+        
+        yield return new WaitForSeconds(0.5f);
+        
+        resultUI.gameObject.SetActive(true);
+        resultUI.Victory();
         Stop();
     }
     
@@ -58,6 +75,7 @@ public class GameManager : MonoBehaviour {
 
         if (gameTime > maxGameTime) {
             gameTime = maxGameTime;
+            GameVictory();
         }
     }
 
