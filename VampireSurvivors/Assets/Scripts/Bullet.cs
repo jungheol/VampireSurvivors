@@ -17,18 +17,18 @@ public class Bullet : MonoBehaviour {
 		this.damage = damage;
 		this.per = per;
 
-		if (per > -1) {
+		if (per >= 0) {
 			rigid.velocity = dir * 10f;
 		}
 	}
 
 	private void OnTriggerEnter2D(Collider2D other) {
-		if (!other.CompareTag("Enemy") || per == -1)
+		if (!other.CompareTag("Enemy") || per == -100)
 			return;
 
 		per--;
 
-		if (per == -1) {
+		if (per < 0) {
 			rigid.velocity = Vector2.zero;
 			gameObject.SetActive(false);
 		}
