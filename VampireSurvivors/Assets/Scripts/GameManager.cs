@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour {
         
         AudioManager.instance.PlayBgm(true);
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
+        AdsManager.instance.LoadAd();
     }
 
     public void GameOver() {
