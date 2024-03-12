@@ -3,7 +3,7 @@ name: Android Build ⭐
 on: [workflow_dispatch]
     
 jobs:
-  buildWindows:
+  build:
     name: 💻 Android
     runs-on: macos-latest
     
