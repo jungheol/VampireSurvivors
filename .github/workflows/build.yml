@@ -33,17 +33,21 @@ jobs:
           projectPath: ./VampireSurvivors/
           targetPlatform: Android
 
-      # Slack Notification
-        - name: action-slack
-          uses: 8398a7/action-slack@v3
-          with:
-            status: ${{ job.status }}
-            author_name: www-be
-            fields: repo,message,commit,author,action,eventName,ref,workflow,job,took
-            if_mention: failure,cancelled
-          env:
-            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
-          if: always() # Pick up events even if the job fails or is canceled.
+  slack:
+    needs: build
+    uses: ./.github/workflows/slack-notify.yml
+    with:
+      color: "#00FF00"
+      msg: 빌드 완료 ${{github.ref_name}}
+    secrets: inherit
+  slack-fail:
+    if: ${{ failure() }}
+    uses: ./.github/workflows/slack-notify.yml
+    needs: build
+    with:
+      color: "#FF0000"
+      msg: 빌드 실패 ${{github.ref_name}}
+    secrets: inherit
 
       # Output
       - uses: actions/upload-artifact@v4
