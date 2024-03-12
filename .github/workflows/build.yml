@@ -6,6 +6,8 @@ jobs:
   build:
     name: 💻 Android
     runs-on: macos-latest
+    outputs:
+        url: ${{ steps.upload.outputs.internalSharingDownloadUrl }}
     
     steps:
       # Checkout
@@ -42,13 +44,13 @@ jobs:
         with:
           name: Android
           path: build
-
+          
   slack:
     needs: build
     uses: ./.github/workflows/slack-notify.yml
     with:
       color: "#00FF00"
-      msg: 빌드 완료 ${{github.ref_name}}
+      msg: <${{ needs.outputs.url }}|성공 🎉 > ${{github.ref_name}}
     secrets: inherit
   slack-fail:
     if: ${{ failure() }}
