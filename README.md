@@ -9,6 +9,7 @@
 - Weapon 및 Monster 의 생성은 Object Pooling 이용해서 구현
 - 게임 종료 시점에 모든 몬스터가 죽지만 경험치에는 영향이 미치지 않도록 구현
 - 조이스틱 기능 추가로 모바일에서 조이스틱으로 캐릭터 움직이도록 구현
+- Github Actions CI/CD 구현
 
 안드로이드 출시버전 : https://play.google.com/store/apps/details?id=com.OnesoulCompany.MonsterSurvivor
 
