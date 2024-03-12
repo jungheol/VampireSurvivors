@@ -23,7 +23,8 @@
 ### 0.2v
 - Google Admob 추가
 
-![02](https://github.com/jungheol/VampireSurvivors/assets/79863514/2e782d44-de2f-4bfe-94a7-090fad18502e) ![01](https://github.com/jungheol/VampireSurvivors/assets/79863514/4d881c51-7629-49bd-9e75-9703f1f0c9ed) ![00](https://github.com/jungheol/VampireSurvivors/assets/79863514/1a5c82a2-b3da-4c27-884e-824e81b5f97e)
+
+![1](https://github.com/jungheol/VampireSurvivors/assets/79863514/cdca3efc-e47d-4a89-b34e-2d5b4b4c02ee) ![2](https://github.com/jungheol/VampireSurvivors/assets/79863514/e7c40715-8ce3-4caa-90f8-9ff1691e9fed) ![3](https://github.com/jungheol/VampireSurvivors/assets/79863514/e0ecffbd-a140-486c-a6da-0cfe45e978ae)
 
 
 
