@@ -9,7 +9,7 @@ on :
         required: true
         type: string
     secrets:
-      SLACK_WEBHOOK:
+      SLACK_WEBHOOK_URL:
         required: true
 jobs :
   SlackNotification :
