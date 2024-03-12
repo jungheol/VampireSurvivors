@@ -10,6 +10,7 @@
 - 게임 종료 시점에 모든 몬스터가 죽지만 경험치에는 영향이 미치지 않도록 구현
 - 조이스틱 기능 추가로 모바일에서 조이스틱으로 캐릭터 움직이도록 구현
 - Github Actions CI/CD 구현
+- Google Admob 추가
 
 안드로이드 출시버전 : https://play.google.com/store/apps/details?id=com.OnesoulCompany.MonsterSurvivor
 
@@ -21,7 +22,7 @@
 - 진행 시간에 따라서 다른 종류의 몬스터 등장
 
 ### 0.2v
-- Google Admob 추가
+- Google Admob 배너 광고 추가
 
 
 ![1](https://github.com/jungheol/VampireSurvivors/assets/79863514/cdca3efc-e47d-4a89-b34e-2d5b4b4c02ee) ![2](https://github.com/jungheol/VampireSurvivors/assets/79863514/e7c40715-8ce3-4caa-90f8-9ff1691e9fed) ![3](https://github.com/jungheol/VampireSurvivors/assets/79863514/e0ecffbd-a140-486c-a6da-0cfe45e978ae)
