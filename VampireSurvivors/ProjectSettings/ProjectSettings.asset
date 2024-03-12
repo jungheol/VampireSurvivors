@@ -249,7 +249,7 @@ PlayerSettings:
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: '{inproject}: SurUser.keystore'
+  AndroidKeystoreName: '{inproject}: Assets/Plugins/vampuser.keystore'
   AndroidKeyaliasName: onesoul
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0
