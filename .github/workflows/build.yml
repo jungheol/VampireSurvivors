@@ -3,7 +3,7 @@ name: Android Build ⭐
 on: [workflow_dispatch]
     
 jobs:
-  buildWindows:
+  build:
     name: 💻 Android
     runs-on: macos-latest
     
@@ -38,3 +38,19 @@ jobs:
         with:
           name: Android
           path: build
+
+  slack:
+    needs: build
+    uses: ./.github/workflows/slack-notify.yml
+    with:
+      color: "#00FF00"
+      msg: 빌드 완료 ${{github.ref_name}}
+    secrets: inherit
+  slack-fail:
+    if: ${{ failure() }}
+    uses: ./.github/workflows/slack-notify.yml
+    needs: build
+    with:
+      color: "#FF0000"
+      msg: 빌드 실패 ${{github.ref_name}}
+    secrets: inherit
