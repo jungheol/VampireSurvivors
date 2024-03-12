@@ -16,13 +16,13 @@ jobs :
     name : Slack Notification
     runs-on : ubuntu-latest
     steps :
-      - name: action-slack
-        uses: 8398a7/action-slack@v3
-        with:
-          status: ${{ job.status }}
-          author_name: www-be
-          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took
-          if_mention: failure,cancelled
+      - uses : actions/checkout@v2
+      - name: Slack Notify
+        uses: rtCamp/action-slack-notify@v2.2.0
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
-        if: always() # Pick up events even if the job fails or is canceled.
+          SLACK_COLOR : ${{ inputs.color }}
+          SLACK_USERNAME : git-actions-test
+          SLACK_MESSAGE : ${{ inputs.msg }}
+          SLACK_LINK_NAMES : true
+          SLACK_FOOTER : 'github action build'
+          SLACK_WEBHOOK : ${{ secrets.SLACK_WEBHOOK }}
