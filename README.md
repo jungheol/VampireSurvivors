@@ -8,7 +8,7 @@
 - 캐릭터가 일정 조건에 따라서 잠금 해제되는 기능 구현
 - Weapon 및 Monster 의 생성은 Object Pooling 이용해서 구현
 - 게임 종료 시점에 모든 몬스터가 죽지만 경험치에는 영향이 미치지 않도록 구현
-- 조이스틱 기능 추가로모바일에서 조이스틱으로 캐릭터 움직이도록 구현
+- 조이스틱 기능 추가로 모바일에서 조이스틱으로 캐릭터 움직이도록 구현
 
 안드로이드 출시버전 : https://play.google.com/store/apps/details?id=com.OnesoulCompany.MonsterSurvivor
 
@@ -19,7 +19,8 @@
 - 레벨업 시 무기 업그레이드 선택 및 적용
 - 진행 시간에 따라서 다른 종류의 몬스터 등장
 
-
+### 0.2v
+- Google Admob 추가
 
 ![02](https://github.com/jungheol/VampireSurvivors/assets/79863514/2e782d44-de2f-4bfe-94a7-090fad18502e) ![01](https://github.com/jungheol/VampireSurvivors/assets/79863514/4d881c51-7629-49bd-9e75-9703f1f0c9ed) ![00](https://github.com/jungheol/VampireSurvivors/assets/79863514/1a5c82a2-b3da-4c27-884e-824e81b5f97e)
 
