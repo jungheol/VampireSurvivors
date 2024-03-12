@@ -33,6 +33,12 @@ jobs:
           projectPath: ./VampireSurvivors/
           targetPlatform: Android
 
+      # Output
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Android
+          path: build
+
   slack:
     needs: build
     uses: ./.github/workflows/slack-notify.yml
@@ -48,9 +54,3 @@ jobs:
       color: "#FF0000"
       msg: 빌드 실패 ${{github.ref_name}}
     secrets: inherit
-
-      # Output
-      - uses: actions/upload-artifact@v4
-        with:
-          name: Android
-          path: build
