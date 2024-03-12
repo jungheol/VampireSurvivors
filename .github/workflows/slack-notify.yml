@@ -25,4 +25,4 @@ jobs :
           SLACK_MESSAGE : ${{ inputs.msg }}
           SLACK_LINK_NAMES : true
           SLACK_FOOTER : 'github action build'
-          SLACK_WEBHOOK : ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_WEBHOOK : ${{ secrets.SLACK_WEBHOOK_URL }}
