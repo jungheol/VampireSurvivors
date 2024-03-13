@@ -1,0 +1,26 @@
+name : Short URL
+on :
+  workflow_call:
+    inputs:
+      url:
+        required: true
+        type: string
+    outputs:
+      url:
+        value: ${{ jobs.annotate.outputs.url }}
+        
+jobs :
+  annotate :
+    # inputs.url 이 없을경우 실행 X
+    if: inputs.url != ''
+    name : Annotate URL
+    runs-on : ubuntu-latest
+    outputs: 
+      url: ${{ steps.shortener.outputs.shortURL }}
+    steps :
+      # input url 을 action 결과화면에 출력
+      - name: Annotate
+        uses: dkhunt27/action-annotations@beta
+        with:
+          type: notice
+          msg: ${{ inputs.url }}
